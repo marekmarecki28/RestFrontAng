@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Item } from './items/item.model';
 
 @Component({
   selector: 'app-root',
@@ -7,26 +8,28 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  loadedPosts = [];
+  loadedPosts: Item[] = [];
 
   constructor(private http: HttpClient) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
-  onCreatePost(postData: { name: string; quantity: number }) {
-    this.http.post(
+  onCreatePost(postData: Item) {
+    this.http.post<{text: string}>(
       'http://localhost:8080/list/add',
        postData
        ).subscribe(responseData => {
-         console.log(responseData);
+         console.log('Response data: ' + responseData.text);
        });
   }
 
   onFetchPosts() {
-    // Send Http request
+
   }
 
   onClearPosts() {
     // Send Http request
   }
+
 }

@@ -1,27 +1,38 @@
+<app-header></app-header>
 <div class="container">
+  <div class="row">
+      <app-items></app-items>
+  </div>
+</div>
+
+
+
+<!-- <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-6 col-md-offset-3">
       <form #postForm="ngForm" (ngSubmit)="onCreatePost(postForm.value)">
         <div class="form-group">
-          <label for="title">Title</label>
+          <label for="name">Name</label>
           <input
             type="text"
             class="form-control"
-            id="title"
+            id="name"
             required
             ngModel
-            name="title"
+            name="name"
           />
         </div>
         <div class="form-group">
-          <label for="content">Content</label>
-          <textarea
+          <label for="quantity">Qty</label>
+          <input
+            type="number"
             class="form-control"
-            id="content"
+            id="quantity"
             required
             ngModel
-            name="content"
-          ></textarea>
+            min="1"
+            name="quantity"
+          >
         </div>
         <button
           class="btn btn-primary"
@@ -36,23 +47,14 @@
   <hr />
   <div class="row">
     <div class="col-xs-12 col-md-6 col-md-offset-3">
-      <button class="btn btn-primary" (click)="onFetchPosts()">
-        Fetch Posts
-      </button>
-      |
-      <button
-        class="btn btn-danger"
-        [disabled]="loadedPosts.length < 1"
-        (click)="onClearPosts()"
-      >
-        Clear Posts
-      </button>
+      <p *ngIf="loadedPosts.length < 1">No post available!</p>
+      <ul class="list-group" *ngIf="loadedPosts.length >- 1">
+        <li class="list-group-item" *ngFor="let post of loadedPosts">
+          <h3>{{post.name}}</h3>
+          <p>{{post.quantity}}</p>
+        </li>
+      </ul>
     </div>
   </div>
-  <div class="row">
-    <div class="col-xs-12 col-md-6 col-md-offset-3">
-      <p>No posts available!</p>
-    </div>
-  </div>
-</div>
+</div> -->
 
