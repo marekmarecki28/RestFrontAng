@@ -8,10 +8,12 @@
     <div class="col-xs-12">
         <p *ngIf="loadedItems.length < 1">No post available!</p>
         <ul class="list-group" *ngIf="loadedItems.length >= 1">
-        <li class="list-group-item" *ngFor="let item of loadedItems">
+        <a class="list-group-item" 
+            style="cursor: pointer"
+            *ngFor="let item of loadedItems">
             <h3>{{item.name}}</h3>
             <p>{{item.quantity}}</p>
-        </li>
+        </a>
         </ul>
     </div>
 </div>
