@@ -6,12 +6,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { ItemListComponent } from './item-list/item-list.component';
+import { ItemNewComponent } from './item-new/item-new.component';
+import { ShoppingListsComponent } from './shopping-lists/shopping-lists.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ItemListComponent
+    ItemListComponent,
+    ItemNewComponent,
+    ShoppingListsComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule
